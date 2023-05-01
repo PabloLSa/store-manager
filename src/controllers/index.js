@@ -1,3 +1,3 @@
-const { getAllproducts, productById } = require('./controllerProducts');
+const { getAllproducts, productById, insertProducts } = require('./controllerProducts');
 
-module.exports = { getAllproducts, productById };
+module.exports = { getAllproducts, productById, insertProducts };
