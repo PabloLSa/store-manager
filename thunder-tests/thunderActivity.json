@@ -8,12 +8,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-04-28T15:13:41.434Z",
-    "modified": "2023-05-01T21:10:13.602Z",
+    "modified": "2023-05-01T22:08:49.634Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\"name\": \"thundercats\"}",
+      "raw": "{\"name\": \"pabl\"}",
       "form": []
     },
     "tests": []
