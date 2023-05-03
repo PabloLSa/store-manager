@@ -12,4 +12,7 @@ describe('productService', function () {
     const date = await productService.getProducts();
     expect(date).to.be.deep.equal(response);
   })
+  afterEach(function () {
+    sinon.restore();
+  });
 })

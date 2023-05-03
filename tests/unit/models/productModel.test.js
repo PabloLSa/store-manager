@@ -5,7 +5,7 @@ const { getAllproducts } = require('../../../src/models');
 
 describe('productModel', function () {
   it('Test FindAll', async () => {
-    const moch = [
+    const mock = [
       {
         "id": 1,
         "name": "Martelo de Thor"
@@ -19,8 +19,11 @@ describe('productModel', function () {
         "name": "Escudo do Capitão América"
       }
     ]
-    sinon.stub(connection, 'execute').resolves([moch])
+    sinon.stub(connection, 'execute').resolves([mock])
     const date = await getAllproducts()
-    expect(date).to.be.equal(moch)
+    expect(date).to.be.deep.equal(mock)
   })
+  afterEach(function () {
+    sinon.restore();
+  });
 })
