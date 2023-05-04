@@ -1,8 +1,8 @@
-const validSalesBody = async (req, res, next) => {
-  const arrayOfSales = req.body;
+const validSalesBody = (req, res, next) => {
   try {
-    const isQuantity = arrayOfSales.every((sale) =>
-      Object.keys(sale).includes('quantity'));
+    const isProductId = req.body.every((sale) => Object.keys(sale).includes('productId'));
+    const isQuantity = req.body.every((sale) => Object.keys(sale).includes('quantity'));
+    if (!isProductId) throw new Error('"productId" is required');
     if (!isQuantity) throw new Error('"quantity" is required');
     return next();
   } catch (error) {

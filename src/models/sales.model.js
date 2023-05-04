@@ -7,8 +7,8 @@ const registerSale = async () => {
 };
 
 const resgisterProductSold = async (saleId, productId, quantity) => {
-  connection.execute(
-    `INSERT INTO StorageManager.sales_products(sale_id, product_id, quantity)
+ await connection.execute(
+    `INSERT INTO StoreManager.sales_products(sale_id, product_id, quantity)
     VALUE(?,?,?) `,
     [saleId, productId, quantity], 
   );

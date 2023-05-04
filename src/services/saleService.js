@@ -8,17 +8,16 @@ const insertSales = async (arrayOfSales) => {
 
   const products = await getAllproducts();
   const validIds = products.map((product) => product.id);
-  const validId = arrayOfSales.every((sale) => validIds.include(sale.productId));
+  const validId = arrayOfSales.every((sale) => validIds.includes(sale.productId));
   if (!validId) return { type: 404, message: 'Product not found' };
-
-  const saleId = await salesModel.resgisterSale();
+  const saleId = await salesModel.registerSale();
   await Promise.all(arrayOfSales.map(async (sale) => salesModel
     .resgisterProductSold(saleId, sale.productId, sale.quantity))); 
   return {
     type: null,
     message: {
       id: saleId,
-      itemSold: arrayOfSales,
+      itemsSold: arrayOfSales,
     },
   };
 };
