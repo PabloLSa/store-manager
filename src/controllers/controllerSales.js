@@ -7,4 +7,16 @@ const registerSale = async (req, res) => {
   return res.status(201).json(message);
 };
 
-module.exports = { registerSale };
+const getAllSales = async (_req, res) => {
+  const response = await salesService.getAllSales();
+  return res.status(200).json(response);
+};
+
+const getSalesById = async (req, res) => {
+  const id = Number(req.params.id);
+  const { type, message } = await salesService.getSalesById(id);
+  if (type) return res.status(type).json({ message });
+  return res.status(200).json(message);
+};
+
+module.exports = { registerSale, getAllSales, getSalesById };

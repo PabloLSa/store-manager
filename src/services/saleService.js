@@ -21,5 +21,19 @@ const insertSales = async (arrayOfSales) => {
     },
   };
 };
+  const getAllSales = async () => {
+    const sales = await salesModel.getAllSales();
+    return sales;
+  };
 
-module.exports = { insertSales };
+const getSalesById = async (id) => {
+  const sales = await salesModel.getAllSales();
+  const validIds = sales.map((sale) => sale.saleId);
+  const isValidId = validIds.includes(id);
+  if (!isValidId) return { type: 404, message: 'Sale not found' };
+  const saleById = sales.filter((sale) => sale.saleId === id);
+  const response = saleById.map(({ saleId, ...rest }) => ({ ...rest }));
+  return { type: null, message: response };
+};
+
+module.exports = { insertSales, getAllSales, getSalesById };
