@@ -3,6 +3,7 @@ const connection = require('./conecctions');
 const registerSale = async () => {
   const [{ insertId }] = await
     connection.execute('INSERT  INTO StoreManager.sales(date) VALUE(NOW())');
+  // console.log(insertId);
   return insertId;
 };
 
