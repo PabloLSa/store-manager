@@ -1,4 +1,5 @@
 const services = require('../services');
+const { updateProductService } = require('../services/productService');
 
 const getAllproducts = async (_req, res) => {
   const { message } = await services.getProducts();
@@ -29,4 +30,13 @@ const insertProducts = async (req, res) => {
   return res.status(201).json(message);
 };
 
-module.exports = { getAllproducts, productById, insertProducts }; 
+const updateProduct = async (req, res) => {
+  const newName = req.body.name;
+  const id = Number(req.params.id);
+  const { type, message } = await updateProductService(id, newName);
+  
+  if (type) return res.status(type).json({ message });
+  return res.status(200).json({ id, name: newName });
+ };
+
+module.exports = { getAllproducts, productById, insertProducts, updateProduct }; 
