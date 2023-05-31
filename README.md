@@ -19,6 +19,8 @@ Esta é uma API desenvolvida em Node.js utilizando o framework Express.js e um b
 - PUT /vendas/:id - Atualiza as informações de uma venda existente.
 - DELETE /vendas/:id - Exclui uma venda.
 
+### Resumo
+
 Coloquei em prática o conhecimento sobre padrões arquiteturais, usando a arquitetura MSC (model-service-controller). Além disso, exercitei meus conhecimentos sobre REST, criando uma API completamente RESTful.
 
-Em resumo, o MSC no back-end é uma abordagem em que o sistema é dividido em pequenos serviços independentes, permitindo um desenvolvimento mais ágil, escalável e modular do aplicativo ou sistema.
+O MSC no back-end é uma abordagem em que o sistema é dividido em pequenos serviços independentes, permitindo um desenvolvimento mais ágil, escalável e modular do aplicativo ou sistema.
